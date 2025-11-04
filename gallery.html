@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gallery — Remi & Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Patrick+Hand&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="paper-bg">
+  <header class="nav small">
+    <a class="brand" href="index.html">← Back</a>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Photo Gallery</h1>
+
+    <div class="masonry">
+      <img src="images/photo1.jpg" alt="1" onerror="this.src='images/placeholder.jpg'">
+      <img src="images/photo2.jpg" alt="2" onerror="this.src='images/placeholder.jpg'">
+      <img src="images/photo3.jpg" alt="3" onerror="this.src='images/placeholder.jpg'">
+      <img src="images/photo4.jpg" alt="4" onerror="this.src='images/placeholder.jpg'">
+      <img src="images/photo5.jpg" alt="5" onerror="this.src='images/placeholder.jpg'">
+    </div>
+
+    <p class="hint">Tip: to add photos, drop images in `/images/` and add <code>&lt;img src="images/yourphoto.jpg"&gt;</code> inside the <code>.masonry</code> div.</p>
+  </main>
+
+  <footer class="footer">
+    <p>Gallery is simple — just add images to `images/`.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
