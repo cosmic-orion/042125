@@ -97,3 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(wrap);
   }
 });
+
+<script>
+const music = document.querySelector('audio');
+const record = document.querySelector('.record');
+
+music.addEventListener('play', () => {
+  record.style.animationPlayState = 'running';
+});
+
+music.addEventListener('pause', () => {
+  record.style.animationPlayState = 'paused';
+});
+</script>
