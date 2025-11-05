@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +5,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Happy Birthday, My Darling</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Hide nav links initially */
+    .nav nav {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .nav nav.show {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Optional: Center the nav links nicely when they appear */
+    .nav nav a {
+      margin: 0 8px;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body class="paper-bg">
   <header class="nav">
     <a class="brand" href="index.html">For Remi 💌</a>
@@ -26,16 +45,17 @@
       </div>
 
       <h1 class="title">Happy Birthday, <span class="accent">Remi</span></h1>
-      <p class="subtitle">A little scrapbook I made for you — full of memories, photos, and a letter from me.</p>
+      <p class="subtitle">
+        A little scrapbook I made for you — full of memories, photos, and a letter from me.
+      </p>
 
       <div class="cta-row">
-        <a class="btn" href="story.html">Open the Scrapbook</a>
+        <a class="btn" href="#" id="open-scrapbook">Open the Scrapbook</a>
         <a class="btn ghost" href="gallery.html">View Photos</a>
       </div>
     </section>
 
     <section class="preview">
-     
       <div class="preview-cards">
         <a class="card" href="story.html">
           <img src="images/photo2.jpg" alt="memory" onerror="this.src='images/placeholder.jpg'">
@@ -57,6 +77,13 @@
     <p>made with love :)</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script>
+    // Toggle nav links on click
+    document.getElementById("open-scrapbook").addEventListener("click", function(e) {
+      e.preventDefault();
+      const nav = document.querySelector(".nav nav");
+      nav.classList.toggle("show");
+    });
+  </script>
 </body>
 </html>
