@@ -48,33 +48,6 @@
 
   <script src="js/script.js"></script>
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const turntable = document.querySelector('.turntable');
-    const record = document.querySelector('.record');
-
-    record.addEventListener('click', () => {
-      if (!turntable.classList.contains('playing')) {
-        // move hand in
-        turntable.classList.add('playing');
-
-        // after 0.8s (when hand finishes moving), start spinning
-        setTimeout(() => {
-          turntable.classList.add('spin');
-        }, 800);
-      } else {
-        // stop spinning first
-        turntable.classList.remove('spin');
-
-        // wait a bit, then move hand out
-        setTimeout(() => {
-          turntable.classList.remove('playing');
-        }, 500);
-      }
-    });
-  });
-</script>
-
   
 </body>
 </html>
