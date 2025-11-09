@@ -240,3 +240,13 @@ body.playing .star {
   .hand { width: 90px; right: 20px; top: 30px; }
   .plinth { width: 180px; height: 30px; bottom: -20px; }
 }
+
+.turntable.spin .record {
+  animation: spinRecord 5s linear infinite;
+}
+
+@keyframes spinRecord {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
