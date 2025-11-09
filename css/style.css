@@ -1,133 +1,279 @@
+/* LINKS */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* FONTS */
+@font-face {
+  font-family: 'ROMANTIC';
+  src: url('ROMANTIC.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lora';
+  src: url('./fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
+  font-style: italic;
+}
+
+/* ROOT COLORS */
+:root {
+  --paper: #ebd7bf;
+  --accent: #7b5a36;
+  --accent-2: #a67c52;
+  --text: #3b2f2a;
+  --muted: #6b5a50;
+  --shadow: rgba(45, 33, 25, 0.12);
+}
+
+/* GLOBAL */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Lora', serif;
-  background: #f5e8d7;
-  margin: 0;
-  padding: 0;
+  color: var(--text);
+  background-color: var(--paper);
+  line-height: 1.8;
+  letter-spacing: 1px;
   overflow-x: hidden;
 }
 
-main {
-  padding-bottom: 220px; /* space so turntable doesn’t overlap playlists */
+.title, .section-title, .nav .brand, .letter-title, .bubble h3 {
+  font-family: 'ROMANTIC', cursive;
+  letter-spacing: 4px;
 }
 
-/* footer */
+/* CONTAINERS */
+.container {
+  max-width: 980px;
+  margin: 36px auto;
+  padding: 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.narrow { max-width: 720px; margin: 0 auto; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+}
+.nav .brand {
+  color: var(--accent);
+  font-size: 28px;
+}
+
+/* FOOTER */
 .footer {
+  margin-top: auto;
   text-align: center;
+  padding: 1rem 0;
   font-style: italic;
-  color: #4a3a2c;
-  margin-bottom: 100px;
+  color: #593c22;
+  font-size: 0.9rem;
 }
 
-/* Turntable section */
+/* POLAROID */
+.polaroid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fffaf5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+}
+.main-photo {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.caption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #704b2a;
+  font-size: 0.95rem;
+}
+
+/* LINK CARDS */
+.preview { display: none; opacity: 0; transition: opacity 0.6s ease; margin-top: 2rem; text-align: center; }
+.preview.show { display: block; opacity: 1; }
+.preview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  max-width: 800px;
+  margin: 1rem auto 0;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fffaf5;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 240px;
+}
+.card:hover { transform: scale(1.03); box-shadow: 0 6px 14px rgba(0,0,0,0.15); }
+.card img { width: 100%; height: 180px; object-fit: cover; border-top-left-radius: 20px; border-top-right-radius: 20px; }
+.card-text { padding: 0.8rem; font-size: 1rem; color: #4a3a2a; font-weight: 500; }
+
+/* MUSIC AREA ALWAYS SHOWN */
+.music-flap button.flap-toggle { display: none; }
+.music-area { display: block !important; opacity: 1; transform: none; }
+
+/* === TURNTABLE === */
 .turntable {
   position: relative;
-  width: 220px;
-  height: 200px;
-  margin: 0 auto;
-  transform: translateY(30px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-/* Base (plinth) */
-.plinth {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 50px;
-  background: #3d302a;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Record */
 .record {
-  position: absolute;
-  bottom: 45px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle at center, #111 60%, #222 100%);
   border-radius: 50%;
-  animation: spin 4s linear infinite paused;
-  z-index: 2;
+  background: repeating-radial-gradient(circle, #0a0a0a 0, #0a0a0a 1px, #000 2px);
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.05), inset 0 0 40px rgba(0,0,0,0.5);
+  margin-right: 50px;
 }
 
 .record::before {
-  content: '';
+  content: "";
   position: absolute;
-  width: 38px;
-  height: 38px;
-  background: #f7a6b8;
-  border-radius: 50%;
   top: 50%;
   left: 50%;
+  width: 36px;
+  height: 36px;
+  background: #ff9eb5;
+  border-radius: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
 }
 
-/* Turntable arm */
+.record::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 70%);
+  pointer-events: none;
+}
+
+/* ARM */
 .hand {
   position: absolute;
   width: 120px;
   height: 6px;
-  background: #d0c4b7;
-  top: 25px;
-  right: 30px;
+  background: #bfa98f;
+  border-radius: 3px;
+  top: 40px;
+  right: 20px;
   transform-origin: top right;
-  transform: rotate(40deg);
-  transition: transform 1.2s ease-in-out;
-  z-index: 3;
+  transform: rotate(60deg);
+  transition: transform 0.8s ease;
 }
-
-.hand.playing {
-  transform: rotate(15deg);
-}
-
-.head {
-  width: 16px;
-  height: 16px;
+.hand .head {
+  position: absolute;
+  width: 14px;
+  height: 14px;
   background: #444;
   border-radius: 50%;
-  position: absolute;
-  right: 0;
-  top: -5px;
+  bottom: -4px;
+  left: 0;
 }
 
-/* sparkles */
+.turntable.playing .hand {
+  animation: handMove 2s ease-in-out infinite alternate;
+}
+@keyframes handMove {
+  from { transform: translateY(0) rotate(60deg); }
+  to { transform: translateY(-6px) rotate(25deg); }
+}
+
+/* SPINNING */
+.turntable.spin .record {
+  animation: spinRecord 5s linear infinite;
+}
+@keyframes spinRecord {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ✨ SPARKLES ✨ */
 .sparkle {
   position: absolute;
   font-size: 18px;
-  color: #fff5e1;
-  opacity: 0.8;
+  color: #ffd6ec;
+  opacity: 0;
   animation: twinkle 3s infinite ease-in-out;
+  text-shadow: 0 0 6px #ffd6ec, 0 0 12px #ff9eb5;
+  pointer-events: none;
 }
-
-.sparkle1 { top: 20px; left: 25px; }
-.sparkle2 { top: 45px; right: 30px; }
-.sparkle3 { bottom: 55px; left: 40px; }
-.sparkle4 { bottom: 20px; right: 35px; }
-
-@keyframes spin {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to { transform: translateX(-50%) rotate(360deg); }
-}
-
+.sparkle1 { top: -20px; left: 40px; animation-delay: 0.2s; }
+.sparkle2 { top: 10px; right: -20px; animation-delay: 1s; }
+.sparkle3 { bottom: 30px; left: -10px; animation-delay: 1.8s; }
+.sparkle4 { bottom: -20px; right: 30px; animation-delay: 2.5s; }
 @keyframes twinkle {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+.turntable.spin .sparkle { opacity: 1; }
+
+/* 🌟 STAR FIELD 🌟 */
+#star-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Mobile tweak */
-@media (max-width: 480px) {
-  .turntable {
-    width: 180px;
-  }
-  .record {
-    width: 150px;
-    height: 150px;
-  }
-  .plinth {
-    width: 190px;
-  }
+.star {
+  position: absolute;
+  width: 3px; height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: twinkleStar 3s infinite ease-in-out, orbit 40s linear infinite;
+}
+
+@keyframes twinkleStar {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+body.playing .star {
+  animation-duration: 1.5s, 18s;
+  filter: drop-shadow(0 0 6px white);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .record { width: 150px; height: 150px; margin-right: 20px; }
+  .hand { width: 100px; right: 10px; top: 30px; }
 }
