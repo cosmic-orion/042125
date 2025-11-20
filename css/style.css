@@ -76,7 +76,15 @@ column-count: 2; /* number of vertical columns */
 
 
 body.letter-page {
-  background-color: #e8e0d2;
+  background-image: url('../images/download (1).jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  color: var(--text);
+  font-family: 'Lora', serif;
+  overflow: scroll;
 }
 
 body.tunes-page {
@@ -163,9 +171,11 @@ h1, h2 {
 }
 
 .preview-cards {
-  width: 80px;
-  height: auto;
+  width: 100px;
+  height: 100;
   display: flex;
+  justify-content: space-between;
+  padding: 12px 18px;
 }
 
 .nav-stickers img:hover {
