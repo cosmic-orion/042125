@@ -57,21 +57,32 @@ body.photos-page {
   overflow: scroll;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.masonry img {
-column-count: 2; /* number of vertical columns */
-  column-gap: 12px;
+.masonry {
+  column-count: 2;          
+  column-gap: 14px;
+  width: 100%;
 }
 
 .masonry img {
   width: 100%;
-  margin-bottom: 12px;
-  border-radius: 10px; /* optional cute edges */
   display: block;
+  margin-bottom: 14px;
+  border-radius: 10px;       
+  break-inside: avoid;       
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+}
+
+@media (min-width: 700px) {
+  .masonry {
+    column-count: 3;         
+  }
+}
+
+@media (min-width: 1100px) {
+  .masonry {
+    column-count: 4;         /* laptop/desktop */
+  }
 }
 
 
