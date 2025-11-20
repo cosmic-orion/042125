@@ -202,10 +202,9 @@ h1, h2 {
 }
 
 .preview-cards .card {
-  width: 80px;                /* card size */
-  height: 80px;
+  width: 50px;                /* card size */
+  height: auto;
   overflow: hidden;
-  border-radius: 12px;         /* optional cute rounded corners */
   display: block;
 }
 
