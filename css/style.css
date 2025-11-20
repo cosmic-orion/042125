@@ -202,8 +202,8 @@ h1, h2 {
 }
 
 .preview-cards .card {
-  width: 150px;                /* card size */
-  height: 150px;
+  width: 80px;                /* card size */
+  height: 80px;
   overflow: hidden;
   border-radius: 12px;         /* optional cute rounded corners */
   display: block;
@@ -212,7 +212,6 @@ h1, h2 {
 .preview-cards .card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;           /* crops images nicely */
   display: block;
 }
 
