@@ -93,7 +93,7 @@ body.letter-page {
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
-  color: var(--text);
+  color: #4A231E;
   font-family: 'Lora', serif;
   overflow: scroll;
 }
