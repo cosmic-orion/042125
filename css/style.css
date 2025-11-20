@@ -141,8 +141,8 @@ h1, h2 {
   cursor: pointer;
 }
 
-.preview-cards img {
-  width: 30px;
+.preview-cards {
+  width: 40px;
   height: auto;
   display: flex;
   align-items: center;
