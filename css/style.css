@@ -270,6 +270,17 @@ h1, h2 {
   opacity: 0.9;
 }
 
+.letter-body {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px 50px;
+    border: 2px solid #d2b48c;
+    border-radius: 8px;
+    background: url('your-paper-texture.png');
+    background-size: cover;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
 .turntable {
   position: relative;
   display: flex;
